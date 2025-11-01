@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'replace-me-with-a-secure-key')
 
 # Saved for Render deployment on 31-Oct-2025
-DEBUG = True
+DEBUG = False
 
 
 
