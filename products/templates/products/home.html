@@ -30,12 +30,11 @@
                 Cart <span class="cart-count" style="background:#d4af37; color:#000; border-radius:50%; padding:2px 6px; font-size:0.8rem; margin-left:4px;">{{ cart_count }}</span>
             </a></li>
             <li><a href="{% url 'order_history' %}" style="color:white; font-weight:500;">My Orders</a></li>
-            {% if user.is_authenticated %}
-                <li><a href="{% url 'logout' %}" style="color:white; font-weight:500;">Logout</a></li>
-            {% else %}
-                <li><a href="{% url 'login' %}" style="color:white; font-weight:500;">Login</a></li>
-                <li><a href="{% url 'signup' %}" style="color:white; font-weight:500;">Sign Up</a></li>
-            {% endif %}
+            {% if not user.is_authenticated %}
+    <li><a href="{% url 'login' %}" style="color:white; font-weight:500;">Login</a></li>
+    <li><a href="{% url 'signup' %}" style="color:white; font-weight:500;">Sign Up</a></li>
+{% endif %}
+
         </ul>
     </nav>
 </header>

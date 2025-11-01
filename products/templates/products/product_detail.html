@@ -19,12 +19,11 @@
             <li><a href="{% url 'product_list' %}">Shop</a></li>
             <li><a href="{% url 'view_cart' %}">Cart</a></li>
             <li><a href="{% url 'order_history' %}">My Orders</a></li>
-            {% if user.is_authenticated %}
-                <li><a href="{% url 'logout' %}">Logout</a></li>
-            {% else %}
-                <li><a href="{% url 'login' %}">Login</a></li>
-                <li><a href="{% url 'signup' %}">Sign Up</a></li>
-            {% endif %}
+           {% if not user.is_authenticated %}
+    <li><a href="{% url 'login' %}">Login</a></li>
+    <li><a href="{% url 'signup' %}">Sign Up</a></li>
+{% endif %}
+
         </ul>
     </nav>
 </header>
