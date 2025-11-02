@@ -1,4 +1,3 @@
-yes
 """
 Django settings for myproject project (Render-ready).
 """
