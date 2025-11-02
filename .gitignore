@@ -1,0 +1,10 @@
+myenv/
+__pycache__/
+*.pyc
+db.sqlite3
+/staticfiles/
+# Ignore everything in media except products
+media/*
+!media/products/
+*.env
+.DS_Store
