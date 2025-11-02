@@ -1,3 +1,4 @@
+
 """
 Django settings for myproject project (Render-ready).
 """
@@ -14,6 +15,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'replace-me-with-a-secure-key')
 
 # Saved for Render deployment on 31-Oct-2025
 DEBUG = False
+
 
 
 
