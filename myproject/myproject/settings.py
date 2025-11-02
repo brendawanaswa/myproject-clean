@@ -17,7 +17,16 @@ DEBUG = False
 
 
 
-ALLOWED_HOSTS = ['ecommerce-app-furniture.onrender.com', '127.0.0.1', 'localhost']
+
+ALLOWED_HOSTS = [
+    "myproject-clean.onrender.com",
+    "www.myproject-clean.onrender.com",
+    "127.0.0.1",
+    "localhost",
+]
+
+
+
 
 # Application definition
 INSTALLED_APPS = [
