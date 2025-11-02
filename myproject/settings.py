@@ -1,4 +1,3 @@
-
 """
 Django settings for myproject project (Render-ready).
 """
@@ -14,10 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'replace-me-with-a-secure-key')
 
 # Saved for Render deployment on 31-Oct-2025
-DEBUG = False
-
-
-
+DEBUG = False  # Set False in production
 
 ALLOWED_HOSTS = [
     "myproject-clean.onrender.com",
@@ -38,6 +34,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'products',
+    'cloudinary',
+    'cloudinary_storage',
+
 ]
 
 MIDDLEWARE = [
@@ -99,6 +98,19 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 # Media files (uploaded by users)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dvl4eohdu',
+    'API_KEY': '634961644622524',
+    'API_SECRET': 'JcjxO_dQBfSNtN4QbmvABpuATRo',
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 
 # Login redirects
 LOGIN_URL = 'login'
