@@ -22,7 +22,8 @@ def initialize_paystack_payment(amount, email):
     data = {
         "email": email,
         "amount": int(float(amount) * 100),  # convert to kobo
-        "callback_url": "http://127.0.0.1:8000/paystack/webhook/",
+       "callback_url": "http://127.0.0.1:8000/checkout/success/",
+
         "currency": "KES",  # Use NGN for Nigeria, KES for Kenya
     }
 

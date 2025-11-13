@@ -146,6 +146,16 @@ def checkout(request):
         else:
             # Payment initialization failed
             return render(request, 'products/payment_error.html', {'error': 'Unable to initialize Paystack payment.'})
+            # -------------------------------
+# Checkout Success Page
+# -------------------------------
+def checkout_success(request):
+    reference = request.GET.get('reference', None)
+    total = request.GET.get('total', None)
+    return render(request, 'products/checkout_success.html', {
+        'reference': reference,
+        'total': total,
+    })
 
 
 # -------------------------------

@@ -18,14 +18,14 @@ urlpatterns = [
     path('cart/update/', views.update_cart, name='update_cart'),
 
     path('checkout/', views.checkout, name='checkout'),
-    path('checkout/success/', lambda r: render(r, 'products/checkout_success.html'), name='checkout_success'),
+    path('checkout/success/', views.checkout_success, name='checkout_success'),
 
     path('orders/', views.order_history, name='order_history'),
 
     path('signup/', views.signup, name='signup'),
 
     # webhooks
-    path('webhooks/paystack/', views.paystack_webhook, name='paystack_callback'),
+   path('paystack/webhook/', views.paystack_webhook, name='paystack_callback'),
     path('webhooks/stripe/', views.stripe_webhook, name='stripe_webhook'),
 ]
 from django.conf import settings

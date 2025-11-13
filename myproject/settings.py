@@ -1,5 +1,5 @@
 """
-Django settings for myproject project (Render-ready).
+Django settings for myproject project (Local Development - Working version)
 """
 
 from pathlib import Path
@@ -10,18 +10,19 @@ import dj_database_url  # Make sure this is in requirements.txt
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'replace-me-with-a-secure-key')
+SECRET_KEY = '4a^^l&s^$**82y#9m*v1@219_w^6!pz2d$qkjy48gq45*1-uqv'
 
-# Saved for Render deployment on 31-Oct-2025
-DEBUG = False  # Set False in production
+# Debug mode for local development
+DEBUG = False
 
 ALLOWED_HOSTS = [
+    "brendawanaswa.pythonanywhere.com",
+    "www.brendawanaswa.pythonanywhere.com",
     "myproject-clean.onrender.com",
     "www.myproject-clean.onrender.com",
     "127.0.0.1",
     "localhost",
 ]
-
 
 
 
@@ -36,18 +37,17 @@ INSTALLED_APPS = [
     'products',
     'cloudinary',
     'cloudinary_storage',
-
 ]
 
 MIDDLEWARE = [
-    "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",  
-    "django.contrib.sessions.middleware.SessionMiddleware",
-    "django.middleware.common.CommonMiddleware",
-    "django.middleware.csrf.CsrfViewMiddleware",
-    "django.contrib.auth.middleware.AuthenticationMiddleware",
-    "django.contrib.messages.middleware.MessageMiddleware",
-    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'myproject.urls'
@@ -91,14 +91,13 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
+# Static files
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'products' / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-# Media files (uploaded by users)
+# Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
@@ -114,14 +113,14 @@ CLOUDINARY_STORAGE = {
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-
 # Login redirects
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
 
-
-# Payment keys
-PAYSTACK_SECRET_KEY = os.environ.get('PAYSTACK_SECRET_KEY', '')
-PAYSTACK_PUBLIC_KEY = os.environ.get('PAYSTACK_PUBLIC_KEY', '')
-STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY', '')
-STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY', '')
+# -------------------------------
+# Payment keys (Directly added for local dev)
+# -------------------------------
+PAYSTACK_SECRET_KEY = 'sk_test_89d51599804405cf94f666adeb053ddb3a599bda'
+PAYSTACK_PUBLIC_KEY = 'pk_test_3b039c43b8424195377a1b80c44f4ed5ca27c661'
+STRIPE_SECRET_KEY = ''  # leave blank if not using Stripe
+STRIPE_PUBLISHABLE_KEY = ''
